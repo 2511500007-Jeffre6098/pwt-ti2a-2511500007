@@ -163,7 +163,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <?php endif ?>
           <?php if($role == 'Siswa') : ?>
             <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Siswa</p>
                 </a>
@@ -190,7 +190,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </li>
               <li class="nav-item">
             <li class="nav-item menu-open">
-                <a href="#" class="nav-link ">
+              <p class="card-text">
+               <?php 
+               if (isset($_GET['page'])) {
+                    $page = $_GET['page'];
+               } else {
+                    $page = "";
+               }
+                if ($page == ""){
+                    include "page/dashboard.php";
+               } elseif (!file_exists("page/$page.php"))
+                  echo "File Tidak Ditemukan";
+                  include "page/$page.php";
+
+               
+               ?>
+              </p>
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
                 </a>
