@@ -71,8 +71,8 @@ if (isset($_POST['tambah'])) {
                          <div class="form-group">
                             <label for="jenkel">Jenis Kelamin</label>
                             <br>
-                             <select class="from-control" name="jenkel" id="jenkel">
-                                <option disabled selected>--Pilih Jenis kelamin--</option>
+                             <select class="form-control" name="jenkel" id="jenkel">
+                                <option disabled selected>-- Pilih Jenis kelamin --</option>
                                 <option value="Laki-Laki">Laki-Laki</option>
                                 <option value="Perempuan">Perempuan</option>
                             </select>
@@ -85,7 +85,7 @@ if (isset($_POST['tambah'])) {
                          <div class="form-group">
                             <label for="pend_terakhir">Pendidikan Terakhir</label>
                             <br>
-                           <select class="from-control" name="pend_terakhir" id="pend_terakhir">
+                           <select class="form-control" name="pend_terakhir" id="pend_terakhir">
                             <option value="Strata 1">Strata 1</option>
                             <option value="Strata 2">Strata 2</option>
                             <option value="Diploma 3">Diploma 3</option>

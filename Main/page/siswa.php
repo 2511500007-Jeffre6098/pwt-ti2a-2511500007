@@ -6,7 +6,7 @@ require_once "config/koneksi.php";
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Result Siswa</h1>
+                <h1 class="m-0 text-dark">Data Siswa</h1>
             </div>
         </div>
     </div>
@@ -30,7 +30,7 @@ if (isset($_GET['action'])) {
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <a href="index.php?page=tambah_guru" class="btn btn-primary btn-sm">
+                <a href="index.php?page=tambah_siswa" class="btn btn-primary btn-sm">
                 Tambah Siswa</a>
                 <table class="table table-striped">
                     <tread>
@@ -42,12 +42,13 @@ if (isset($_GET['action'])) {
                             <th>Tanggal Lahir</th>
                             <th>No HP</th>
                             <th>Id Kelas</th>
+                            <th>Nama Kelas</th>
                             <th>Action</th>
                         </tr>
                         <tread>
                             <?php
                             $no = 0;
-                            $query = mysqli_query($conn, "SELECT * FROM siswa");
+                            $query = mysqli_query($conn, "SELECT siswa.*, kelas.nm_kelas FROM siswa JOIN kelas ON siswa.id_kelas = kelas.id_kelas");
                             while ($result = mysqli_fetch_array($query) ) {
                                 $no++;
                                 ?>
@@ -59,7 +60,9 @@ if (isset($_GET['action'])) {
                                 <td><?= $result['kelamin'] ?></td>
                                 <td><?= $result['tgl_lahir'] ?></td>
                                 <td><?= $result['hp'] ?></td>
-                                <td><?= $result['alamat'] ?></td>
+                                <td><?= $result['id_kelas'] ?></td>
+                                <td><?= $result['nm_kelas'] ?></td>
+
                                 <td>
                                     <a href="index.php?page=siswa&action=hapus&kd=<?= $result['nis'] ?>" 
                                     <title="">

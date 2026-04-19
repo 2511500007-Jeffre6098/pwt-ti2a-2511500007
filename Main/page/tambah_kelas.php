@@ -5,7 +5,7 @@ require_once "config/koneksi.php";
     <div class="content-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Data Kelas</h1>
+                <h1 class="m-0 text-dark">Tambah Kelas</h1>
             </div>
         </div>
     </div>

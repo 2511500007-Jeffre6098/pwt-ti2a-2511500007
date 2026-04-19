@@ -42,7 +42,7 @@ if($insert){
         <div class="card">
             <div class="card-body">
                 <div class="card-body p-2">
-                    <form method="POST" action=""></form>
+                    <form method="POST" action="">
                     <div class="form-group">
                         <label for="">Kode Mapel</label>
                         <input type="text" name="Kd_mapel" value="<?= $edit['Kd_mapel']; ?>" class="form-control" readonly>
@@ -58,6 +58,7 @@ if($insert){
                     <div class="card-footer">
                         <input type="submit" class="btn btn-primary" name="tambah" value="Simpan">
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
