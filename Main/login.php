@@ -1,6 +1,7 @@
 <?php
 include "config/koneksi.php";
 session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -73,26 +74,61 @@ session_start();
 
 <?php
 if (isset($_POST['Username'])) {
-  $Username = $_POST['Username'];
-  $Password = $_POST['Password'];
 
+    $Username = $_POST['Username'];
+    $Password = $_POST['Password'];
 
-  if (empty($Username) || empty($Password)) {
-    echo "Data Tidak Boleh kosong";
-  } else {
-    $userquery = mysqli_fetch_array(mysqli_query($conn, 
-    "SELECT * FROM users WHERE Username= '$Username' AND Password ='$Password'"));
-    if ($userquery) {
-     $_SESSION['Username'] = $Username;
-     $_SESSION['Role'] = $userquery['Role'];
-     header("location:index.php");
-      } else {
-        echo '<div class="alert alert-danger alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert">×</button>
-            <h5><i class="icon fas fa-ban"></i> Alert!</h5>
-            Login gagal
-            </div>';
-      }
+    if (empty($Username) || empty($Password)) {
+
+        echo "Data Tidak Boleh kosong";
+
+    } else {
+
+        $query = mysqli_query($conn,
+            "SELECT * FROM users 
+             WHERE Username='$Username' 
+             AND Password='$Password'"
+        );
+
+        $userquery = mysqli_fetch_array($query);
+
+        if ($userquery) {
+
+            $_SESSION['Username'] = $Username;
+            $_SESSION['Role'] = $userquery['Role'];
+
+            if ($userquery['Role'] == 'Admin') {
+
+                header("location:index.php");
+
+            } else if (
+                $userquery['Role'] == 'Guru' ||
+                $userquery['Role'] == 'Siswa'
+            ) {
+
+                if ($userquery['Password'] == '12345') {
+
+                    header("Location: index.php?page=ganti_password");
+
+                } else {
+
+                    header("location:index.php");
+
+                }
+
+            }
+
+        } else {
+
+            echo '<div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">×</button>
+                    <h5><i class="icon fas fa-ban"></i> Alert!</h5>
+                    Login gagal
+                  </div>';
+
+        }
+
     }
+
 }
 ?>

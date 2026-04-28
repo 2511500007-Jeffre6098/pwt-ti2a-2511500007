@@ -255,7 +255,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   echo "File Tidak Ditemukan";
                } else { 
                 include "page/$page.php";
-                }
+               }
+               if ($page == "page/ganti_password.php"){
+                header("location:index.php");
+               }
+
                 ?>                </p>
 
                 <a href="#" class="card-link">Card link</a>

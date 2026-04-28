@@ -57,7 +57,7 @@ if (isset($_POST['tambah'])) {
 
                         <div class="form-group">
                             <label>Jenis Kelamin</label>
-                            <select class="form-control" name="kelamin">
+                            <select class="form-control" name="kelamin" id="kelamin">
                                 <option value="Laki-Laki" <?= $edit['kelamin'] == 'Laki-Laki' ? 'selected' : '' ?>>Laki-Laki</option>
                                 <option value="Perempuan" <?= $edit['kelamin'] == 'Perempuan' ? 'selected' : '' ?>>Perempuan</option>
                             </select>
@@ -65,7 +65,7 @@ if (isset($_POST['tambah'])) {
 
                         <div class="form-group">
                             <label>No HP</label>
-                            <input type="number" name="hp" value="<?= $edit['hp']; ?>" class="form-control">
+                            <input type="number" name="hp" id="hp" value="<?= $edit['hp']; ?>" class="form-control">
                         </div>
 
                         <div class="form-group">
@@ -74,7 +74,7 @@ if (isset($_POST['tambah'])) {
                         </div>
 
                         <div class="form-group">
-                            <label>Id Kelas</label>
+                            <label>Nama Kelas</label>
                             <select name="id_kelas" class="form-control">
                                 <select name="id_kelas" class="form-control">
                                     <?php
