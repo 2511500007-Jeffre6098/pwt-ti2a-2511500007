@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require_once("config/koneksi.php");
+    require_once ("config/koneksi.php");
     if(isset($_SESSION['Username'])){
       $role = $_SESSION['Role'];
  ?>
@@ -117,27 +117,33 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="index.php?page=mapel" class="nav-link active">
+                <a href="index.php?page=mapel" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'mapel' || $_GET['page'] == 'edit_mapel' || $_GET['page'] == 'tambah_mapel') ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mata Pelajaran</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=guru" class="nav-link">
+                <a href="index.php?page=guru" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'guru' || $_GET['page'] == 'edit_guru' || $_GET['page'] == 'tambah_guru') ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Guru</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=kelas" class="nav-link">
+                <a href="index.php?page=kelas" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'kelas' || $_GET['page'] == 'edit_kelas' || $_GET['page'] == 'tambah_kelas') ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=siswa" class="nav-link">
+                <a href="index.php?page=siswa" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'siswa' || $_GET['page'] == 'edit_siswa' || $_GET['page'] == 'tambah_siswa') ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Siswa</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="index.php?page=ekstra2511500007" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'ekstra2511500007' || $_GET['page'] == 'edit_ekstra2511500007' || $_GET['page'] == 'tambah_ekstra2511500007') ? 'active' : '' ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Ekstrakulikuler</p>
                 </a>
               </li>
             </ul>
@@ -153,7 +159,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
                 </a>

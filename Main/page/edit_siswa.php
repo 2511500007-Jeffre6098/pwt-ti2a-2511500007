@@ -10,7 +10,9 @@
 
 <?php
 $kd = $_GET['kd'];
-$edit = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM siswa WHERE nis='$nis'"));
+$query = mysqli_query($conn, "SELECT * FROM siswa WHERE nis='$kd'");
+$edit = mysqli_fetch_array($query);
+
 
 
 if (isset($_POST['tambah'])) {
@@ -76,12 +78,10 @@ if (isset($_POST['tambah'])) {
                         <div class="form-group">
                             <label>Nama Kelas</label>
                             <select name="id_kelas" class="form-control">
-                                <select name="id_kelas" class="form-control">
                                     <?php
-                                    $kelas = mysqli_query($conn, "SELECT * FROM kelas"); #Querry untuk manggil tabel kelas
-                                    while ($k = mysqli_fetch_array($kelas)) { #loop data, setor perintah dari $kelas ke $k, biar bisa jalankan perintah yang sama berkali-kali hingga data yang didatabase habis ditampilkan
-                                        $selected = ($k['id_kelas'] == $edit['id_kelas']) ? 'selected' : ''; #Kalau id_kelas dari database sama dengan id_kelas milik siswa yang sedang diedit, tandai sebagai selected
-                                        echo "<option value='$k[id_kelas]' $selected>$k[nm_kelas]</option>"; #dipakai supaya option dropdown dibuat otomatis dari database, bukan ngetik manual satu-satu.
+                                    $query = mysqli_query($conn, "SELECT * FROM kelas"); #Querry untuk manggil tabel kelas
+                                    while ($k = mysqli_fetch_array($query)) { #loop data, setor perintah dari $kelas ke $k, biar bisa jalankan perintah yang sama berkali-kali hingga data yang didatabase habis ditampilkan
+                                        echo "<option value='$k[id_kelas]'". ($edit['id_kelas'] == $k['id_kelas'] ? 'selected' : '') .">$k[nm_kelas]</option>"; #dipakai supaya option dropdown dibuat otomatis dari database, bukan ngetik manual satu-satu.
                                     }
                                     ?>
                                 </select>
