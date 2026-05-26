@@ -19,7 +19,7 @@ if (isset($_GET['action'])) {
         $query = mysqli_query($conn, "DELETE FROM kelas WHERE id_kelas ='$id'");
         if ($query) {
             echo '
-            <div classs="alert alert-warning alert-dismissible">
+            <div class="alert alert-warning alert-dismissible">
             Berhasil Dihapus</div>';
             echo '<meta http-equiv="refresh" content="1;url=index.php?page=kelas"/>';
         }
@@ -54,9 +54,9 @@ if (isset($_GET['action'])) {
                                 <td><?= $result['nm_kelas'] ?></td>
                                 <td>
                                     <a href="index.php?page=kelas&action=hapus&id=<?= $result['id_kelas'] ?>" 
-                                    <title="">
+                                    >
                                         <span class="badge badge-danger">Hapus</span> </a>  
-                                        <a href="index.php?page=edit_kelas&id=<?= $result['id_kelas'] ?>"<title="">
+                                        <a href="index.php?page=edit_kelas&id=<?= $result['id_kelas'] ?>">
                                         <span class="badge badge-warning">edit</span></a>                                  
                                 </td>
                             </tr>

@@ -26,8 +26,7 @@ if (isset($_POST['tambah'])) {
     $insert = mysqli_query($conn, "UPDATE tabel_guru SET nm_guru='$nm_guru', jenkel='$jenkel', pend_terakhir='$pend_terakhir', tgl_lahir='$tgl_lahir', hp='$hp', alamat='$alamat' WHERE kd_guru='$kd_guru'");
     if ($insert) {
         echo '<div class="alert alert-info-dismissible">
-    <button type="button" class="close" data-dismiss="alert"
-        aria-hkdden="true">&times;</button>
+    <button type="button" class="close" data-dismiss="alert">X</button>
     <h5> <i class="icon fas fa-info"></i> Info </h5>
     <h4>Berhasil Diubah</h4></div>';
         echo '<meta http-equiv="refresh" content="1;url=index.php?page=guru">';

@@ -18,9 +18,7 @@ if (isset($_GET['action'])) {
         $kd = $_GET['kd'];
         $query = mysqli_query($conn, "DELETE FROM ekstra_2511500007 WHERE id_ekstra007='$kd'");
         if ($query) {
-            echo '
-            <div classs="alert alert-warning alert-dismissible">
-            Berhasil Dihapus</div>';
+            echo '<div class="alert alert-warning alert-dismissible">Berhasil Dihapus</div>';
             echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra2511500007"/>';
         }
     }
@@ -59,11 +57,10 @@ if (isset($_GET['action'])) {
                                         <td><?= $result['semester007'] ?></td>
                                         <td><?= $result['thn_ajaran007'] ?></td>
                                         <td>
-                                            <a href="index.php?page=ekstra2511500007&action=hapus&kd=<?= $result['id_ekstra007'] ?>"
-                                                <title="">
-                                                <span class="badge badge-danger">Hapus</span> </a>
-                                            <a href="index.php?page=edit_ekstra2511500007&kd=<?= $result['id_ekstra007'] ?>" <title="">
-                                                <span class="badge badge-warning">edit</span></a>
+                                            <a href="index.php?page=ekstra2511500007&action=hapus&kd=<?= $result['id_ekstra007'] ?>" >
+                                                <span class="badge badge-danger">Hapus</span> </a> 
+                                            <a href="index.php?page=edit_ekstra2511500007&kd=<?= $result['id_ekstra007'] ?>" >
+                                                <span class="badge badge-warning">edit</span></a> </title>
                                         </td>
                                     </tr>
                                 </tbody>

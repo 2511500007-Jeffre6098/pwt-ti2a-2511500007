@@ -19,7 +19,7 @@ if (isset($_GET['action'])) {
         $query = mysqli_query($conn, "DELETE FROM siswa WHERE nis='$kd'");
         if ($query) {
             echo '
-            <div classs="alert alert-warning alert-dismissible">
+            <div class="alert alert-warning alert-dismissible">
             Berhasil Dihapus</div>';
             echo '<meta http-equiv="refresh" content="1;url=index.php?page=siswa"/>';
         }
@@ -65,9 +65,9 @@ if (isset($_GET['action'])) {
 
                                 <td>
                                     <a href="index.php?page=siswa&action=hapus&kd=<?= $result['nis'] ?>" 
-                                    <title="">
+                                    >
                                         <span class="badge badge-danger">Hapus</span> </a>  
-                                    <a href="index.php?page=edit_siswa&kd=<?= $result['nis'] ?>"<title="">
+                                    <a href="index.php?page=edit_siswa&kd=<?= $result['nis'] ?>">
                                         <span class="badge badge-warning">edit</span></a>                                  
                                 </td>
                             </tr>

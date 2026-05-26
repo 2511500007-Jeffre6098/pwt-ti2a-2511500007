@@ -19,7 +19,7 @@ if (isset($_GET['action'])) {
         $query = mysqli_query($conn, "DELETE FROM tabel_guru WHERE kd_guru='$kd'");
         if ($query) {
             echo '
-            <div classs="alert alert-warning alert-dismissible">
+            <div class="alert alert-warning alert-dismissible">
             Berhasil Dihapus</div>';
             echo '<meta http-equiv="refresh" content="1;url=index.php?page=guru"/>';
         }

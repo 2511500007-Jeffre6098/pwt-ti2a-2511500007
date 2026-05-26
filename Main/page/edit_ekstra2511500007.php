@@ -25,18 +25,20 @@ if (isset($_POST['tambah'])) {
 
     $insert = mysqli_query($conn, "UPDATE ekstra_2511500007 SET id_ekstra007='$id_ekstra007', nm_ekstra007='$nm_ekstra007', semester007='$semester007', ket007='$ket007',  thn_ajaran007='$thn_ajaran007' WHERE id_ekstra007='$id_ekstra007'");
     if ($insert) {
-        echo '<div class="alert alert-info-dismissible">
-    <button type="button" class="close" data-dismiss="alert"
-        aria-hkdden="true">&times;</button>
-    <h5> <i class="icon fas fa-info"></i> Info </h5>
-    <h4>Berhasil Diubah</h4></div>';
+        echo '
+        <div class="alert alert-info alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">X</button>
+            <h5><i class="icon fas fa-info"></i> Info</h5>
+            <h4>Berhasil Disimpan</h4>
+        </div>';
         echo '<meta http-equiv="refresh" content="1;url=index.php?page=ekstra2511500007">';
     } else {
-        echo '<div class="alert alert-warning alert-dismissible">
-    <button type="button" class="close" data-dismiss="alert"
-        aria-hkdden="true">&times;</button>
-    <h5> <i class="icon fas fa-warning"></i> Info </h5>
-    <h4>Gagal Diubah</h4></div>';
+        echo '
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">X</button>
+            <h5><i class="icon fas fa-info"></i> Info</h5>
+            <h4>Gagal Disimpan</h4>
+        </div>';
     }
 }
 ?>
