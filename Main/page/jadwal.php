@@ -49,10 +49,7 @@ if (isset($_GET['hapus'])) {
                     </thead>
                     <tbody>
                         <?php
-                        $query = mysqli_query($conn, "SELECT j.*, g.nm_guru 
-                                                      FROM jadwal j 
-                                                      LEFT JOIN tabel_guru g 
-                                                        ON TRIM(j.kd_guru) = TRIM(g.kd_guru) COLLATE utf8mb4_0900_ai_ci");
+                        $query = mysqli_query($conn, "SELECT j.*, g.nm_guru FROM jadwal j  LEFT JOIN tabel_guru g ON TRIM(j.kd_guru) = TRIM(g.kd_guru) COLLATE utf8mb4_0900_ai_ci");
                         while ($row = mysqli_fetch_assoc($query)):
                         ?>
                             <tr>
@@ -63,10 +60,7 @@ if (isset($_GET['hapus'])) {
                                 <td>
                                     <ul>
                                         <?php
-                                        $det = mysqli_query($conn, "SELECT d.*, m.Nm_mapel 
-                                                                    FROM detailjadwal d 
-                                                                    JOIN tabelmapel m ON d.Kd_mapel = m.Kd_mapel
-                                                                    WHERE d.id_jadwal = '{$row['id_jadwal']}'");
+                                        $det = mysqli_query($conn, "SELECT d.*, m.Nm_mapel FROM detailjadwal d  JOIN tabelmapel m ON d.Kd_mapel = m.Kd_mapel WHERE d.id_jadwal = '{$row['id_jadwal']}'");
                                         while ($d = mysqli_fetch_assoc($det)):
                                         ?>
                                             <li><?= $d['Nm_mapel'] ?> - <?= $d['hari'] ?> - <?= $d['jam'] ?> - <?= $d['kelas'] ?></li>
@@ -90,4 +84,3 @@ if (isset($_GET['hapus'])) {
     </div>
 </div>
 "
-Observation: Create successful: /app/jadwal.php
