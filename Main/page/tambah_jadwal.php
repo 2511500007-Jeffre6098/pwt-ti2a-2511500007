@@ -137,10 +137,15 @@ if (isset($_POST['tambah'])) {
                                 <div class="col-md-3">
                                     <select name="jam[]" class="form-control" required>
                                         <option selected disabled>---Pilih Jam---</option>
-                                        <option>08:00-10:00</option>
-                                        <option>08:00-09:30</option>
+                                        <option>07:15-09:15</option>
+                                        <option>07:15-08:00</option>                                       
+                                        <option>08:00-09:15</option>
+                                        <option>08:00-09:15</option>
+                                        <option>09:45-10:30</option>
+                                        <option>10:30-11:15</option>
                                         <option>10:30-12:00</option>
-                                        <option>12:30-14:00</option>
+                                        <option>12:45-14:00</option>
+                                        <option>14:00-15:30</option>                                        
                                     </select>
                                 </div>
                                 <div class="col-md-3">
@@ -149,7 +154,7 @@ if (isset($_POST['tambah'])) {
                                         <?php
                                         $kelas = mysqli_query($conn, "SELECT * FROM kelas");
                                         while ($k = mysqli_fetch_array($kelas)) {
-                                            echo "<option value='{$k['id_kelas']}'>{$k['nm_kelas']}</option>";
+                                            echo "<option value='{$k['nm_kelas']}'>{$k['nm_kelas']}</option>";
                                         }
                                         ?>
                                     </select>
