@@ -1,8 +1,8 @@
 <?php
 if (isset($_GET['hapus'])) {
-    $id_jadwal = $_GET['hapus'];
-    mysqli_query($conn, "DELETE FROM detailjadwal WHERE id_jadwal = '$id_jadwal'");
-    $hapus = mysqli_query($conn, "DELETE FROM jadwal WHERE id_jadwal = '$id_jadwal'");
+    $id_jadwalk = $_GET['hapus'];
+    mysqli_query($conn, "DELETE FROM detailjadwalkelas WHERE id_jadwalk = '$id_jadwalk'");
+    $hapus = mysqli_query($conn, "DELETE FROM jadwalkelas WHERE id_jadwalk = '$id_jadwalk'");
 ?>
     <?php if ($hapus): ?>
         <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -25,7 +25,7 @@ if (isset($_GET['hapus'])) {
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1 class="m-0 text-dark">Jadwal Guru</h1>
+                <h1 class="m-0 text-dark">Jadwal Kelas</h1>
             </div>
         </div>
     </div>
@@ -35,7 +35,7 @@ if (isset($_GET['hapus'])) {
     <div class="container-fluid">
         <div class="card">
             <div class="card-body">
-                <a href="index.php?page=tambah_jadwal" class="btn btn-primary btn-sm mb-2">Tambah Jadwal</a>
+                <a href="index.php?page=tambah_jadwalkelas" class="btn btn-primary btn-sm mb-2">Tambah Jadwal</a>
                 <table class="table table-bordered table-hover">
                     <thead>
                         <tr>
@@ -49,30 +49,30 @@ if (isset($_GET['hapus'])) {
                     </thead>
                     <tbody>
                         <?php
-                        $query = mysqli_query($conn, "SELECT j.*, g.nm_guru FROM jadwal j  LEFT JOIN tabel_guru g ON TRIM(j.kd_guru) = TRIM(g.kd_guru) COLLATE utf8mb4_0900_ai_ci");
+                        $query = mysqli_query($conn, "SELECT j.*, n.nm_kelas FROM jadwalkelas j  LEFT JOIN kelas n ON TRIM(j.id_kelas) = TRIM(n.id_kelas) COLLATE utf8mb4_0900_ai_ci");
                         while ($row = mysqli_fetch_assoc($query)):
                         ?>
                             <tr>
-                                <td><?= $row['id_jadwal'] ?></td>
-                                <td><?= $row['nm_guru'] ?></td>
+                                <td><?= $row['id_jadwalk'] ?></td>
+                                <td><?= $row['nm_kelas'] ?></td>
                                 <td><?= $row['semester'] ?></td>
                                 <td><?= $row['thn_ajaran'] ?></td>
                                 <td>
                                     <ul>
                                         <?php
-                                        $det = mysqli_query($conn, "SELECT d.*, m.Nm_mapel FROM detailjadwal d  JOIN tabelmapel m ON d.Kd_mapel = m.Kd_mapel WHERE d.id_jadwal = '{$row['id_jadwal']}'");
-                                        while ($d = mysqli_fetch_assoc($det)):
+                                        $det = mysqli_query($conn, "SELECT k.*, m.Nm_mapel FROM detailjadwalkelas k  JOIN tabelmapel m ON k.Kd_mapel = m.Kd_mapel WHERE k.id_jadwalk = '{$row['id_jadwalk']}'");
+                                        while ($k = mysqli_fetch_assoc($det)):
                                         ?>
-                                            <li><?= $d['Nm_mapel'] ?> - <?= $d['hari'] ?> - <?= $d['jam'] ?> - <?= $d['kelas'] ?></li>
+                                            <li><?= $k['Nm_mapel'] ?> - <?= $k['hari'] ?> - <?= $k['jam'] ?> - <?= $k['nm_guru'] ?></li>
                                         <?php endwhile; ?>
                                     </ul>
                                 </td>
                                 <td>
-                                    <a href="index.php?page=jadwal&hapus=<?= $row['id_jadwal'] ?>"
+                                    <a href="index.php?page=jadwal_kelas&hapus=<?= $row['id_jadwalk'] ?>"
                                        class="btn btn-danger btn-sm"
                                        onclick="return confirm('Yakin ingin menghapus data ini?')">Hapus</a>
 
-                                    <a href="index.php?page=edit_jadwal&id=<?= $row['id_jadwal'] ?>"
+                                    <a href="index.php?page=edit_jadwalkelas&id=<?= $row['id_jadwalk'] ?>"
                                        class="btn btn-warning btn-sm">Edit</a>
                                 </td>
                             </tr>

@@ -54,10 +54,10 @@ if (isset($_GET['action'])) {
                                 <td><?= $result['nm_kelas'] ?></td>
                                 <td>
                                     <a href="index.php?page=kelas&action=hapus&id=<?= $result['id_kelas'] ?>" 
-                                    >
-                                        <span class="badge badge-danger">Hapus</span> </a>  
+                                    ><span class="badge badge-danger">Hapus</span> </a>  
+                                    
                                         <a href="index.php?page=edit_kelas&id=<?= $result['id_kelas'] ?>">
-                                        <span class="badge badge-warning">edit</span></a>                                  
+                                        <span class="badge badge-warning">Edit</span></a>                                  
                                 </td>
                             </tr>
                             </tbody>

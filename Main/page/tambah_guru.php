@@ -35,14 +35,14 @@ if (isset($_POST['tambah'])) {
 
     $insert = mysqli_query($conn, "INSERT INTO tabel_guru values ('$kd_guru','$nm_guru','$jenkel','$pend_terakhir','$hp','$alamat','$tgl_lahir')");
     if ($insert) {
-        echo '<div class="alert alert-info-dismissable">
+        echo '<div class="alert alert-info alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" 
             aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-info"></i> Info </h5>
         <h4>Data Berhasil Disimpan</h4></div>';
         echo '<meta http-equiv="refresh" content="2;url=index.php?page=guru"/>';
     } else {
-        echo '<div class="alert alert-warning alert-dismissible">
+        echo '<div class="alert alert-danger alert-dismissible">
         <button type="button" class="close" data-dismiss="alert"
             aria-hidden="true">&times;</button>
         <h5><i class="icon fas fa-info"></i> Info </h5>

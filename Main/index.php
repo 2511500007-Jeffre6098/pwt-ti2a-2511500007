@@ -159,9 +159,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="index.php?page=jadwal" class="nav-link">
+                <a href="index.php?page=jadwal" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'jadwal' || $_GET['page'] == 'edit_jadwal' || $_GET['page'] == 'tambah_jadwal') ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Jadwal</p>
+                  <p>Jadwal Guru</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="index.php?page=jadwal_kelas" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'jadwalkelas' || $_GET['page'] == 'edit_jadwalkelas' || $_GET['page'] == 'tambah_jadwalkelas') ? 'active' : '' ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Jadwal Kelas</p>
                 </a>
               </li>
             </ul>
