@@ -16,8 +16,9 @@ require_once "config/koneksi.php";
 if (isset($_GET['action'])) {
     if ($_GET['action'] == "hapus") {
         $kd =$_GET['kd'];
-        $query = mysqli_query($conn, "DELETE FROM tabel_guru WHERE kd_guru='$kd'");
-        if ($query) {
+        $guru = mysqli_query($conn, "DELETE FROM tabel_guru WHERE kd_guru ='$kd'");
+        $user = mysqli_query($conn, "DELETE FROM users WHERE Username ='$kd'");
+        if ($guru || $user) {
             echo '
             <div class="alert alert-warning alert-dismissible">
             Berhasil Dihapus</div>';

@@ -32,9 +32,26 @@ if (isset($_POST['tambah'])) {
     $hp = $_POST['hp'];
     $alamat = $_POST['alamat'];
     $tgl_lahir = $_POST['tgl_lahir'];
+    $password = 1234;
+    
 
-    $insert = mysqli_query($conn, "INSERT INTO tabel_guru values ('$kd_guru','$nm_guru','$jenkel','$pend_terakhir','$hp','$alamat','$tgl_lahir')");
-    if ($insert) {
+    $insertGuru = mysqli_query($conn, "INSERT INTO tabel_guru values ('$kd_guru','$nm_guru','$jenkel','$pend_terakhir','$hp','$alamat','$tgl_lahir')");
+    
+if (!$insertGuru) {
+        echo "Gagal insert ke tabel jadwal: " . mysqli_error($conn);
+        die;
+    }
+
+    $allSuccess = true;
+
+    $insertUsers = mysqli_query($conn, "INSERT INTO users (Username, Password, Role) values ('$kd_guru','$password','Guru')");
+        if (!$insertUsers) {
+            $allSuccess = false;
+            echo "Gagal insert detail ke-{$i}: " . mysqli_error($conn);
+        }
+    }
+    
+    if ($allSuccess) {
         echo '<div class="alert alert-info alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" 
             aria-hidden="true">&times;</button>
@@ -49,7 +66,7 @@ if (isset($_POST['tambah'])) {
             <h4>Data Gagal Disimpan</h4>
         </div>';
     }
-}
+
 ?>
 <section class="content">
     <div class="container-fluid">

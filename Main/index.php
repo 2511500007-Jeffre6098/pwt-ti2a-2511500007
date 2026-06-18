@@ -3,6 +3,8 @@
     require_once ("config/koneksi.php");
     if(isset($_SESSION['Username'])){
       $role = $_SESSION['Role'];
+      $id_user = $_SESSION['Id_user'];
+      $page = $page ?? '';
  ?>
 <!DOCTYPE html>
 <!--
@@ -117,31 +119,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                <a href="index.php?page=mapel" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'mapel' || $_GET['page'] == 'edit_mapel' || $_GET['page'] == 'tambah_mapel') ? 'active' : '' ?>">
+                <a href="index.php?page=mapel" class="nav-link <?php echo $page && $page == 'mapel' || $page == 'edit_mapel' || $page == 'tambah_mapel' ? 'active' : '' ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Mata Pelajaran</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=guru" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'guru' || $_GET['page'] == 'edit_guru' || $_GET['page'] == 'tambah_guru') ? 'active' : '' ?>">
+                <a href="index.php?page=guru" class="nav-link <?php echo (isset($page) && $page == 'guru' || $page == 'edit_guru' || $page == 'tambah_guru' ? 'active' : '') ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Guru</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=kelas" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'kelas' || $_GET['page'] == 'edit_kelas' || $_GET['page'] == 'tambah_kelas') ? 'active' : '' ?>">
+                <a href="index.php?page=kelas" class="nav-link <?php echo (isset($page) && $page == 'kelas' || $page == 'edit_kelas' || $page == 'tambah_kelas' ? 'active' : '') ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Kelas</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=siswa" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'siswa' || $_GET['page'] == 'edit_siswa' || $_GET['page'] == 'tambah_siswa') ? 'active' : '' ?>">
+                <a href="index.php?page=siswa" class="nav-link <?php echo (isset($page) && $page == 'siswa' || $page == 'edit_siswa' || $page == 'tambah_siswa' ? 'active' : '') ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Siswa</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="index.php?page=ekstra2511500007" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'ekstra2511500007' || $_GET['page'] == 'edit_ekstra2511500007' || $_GET['page'] == 'tambah_ekstra2511500007') ? 'active' : '' ?>">
+                <a href="index.php?page=ekstra2511500007" class="nav-link <?php echo (isset($page) && $page == 'ekstra2511500007' || $page == 'edit_ekstra2511500007' || $page == 'tambah_ekstra2511500007' ? 'active' : '') ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ekstrakulikuler</p>
                 </a>
@@ -159,21 +161,24 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="index.php?page=jadwal" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'jadwal' || $_GET['page'] == 'edit_jadwal' || $_GET['page'] == 'tambah_jadwal') ? 'active' : '' ?>">
+                <a href="index.php?page=jadwal" class="nav-link <?php echo (isset($page) && $page == 'jadwal' || $page == 'edit_jadwal' || $page == 'tambah_jadwal' ? 'active' : '') ?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Jadwal Guru</p>
+                  <p>Jadwal</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="index.php?page=jadwal_kelas" class="nav-link <?php echo (isset($_GET['page']) && $_GET['page'] == 'jadwalkelas' || $_GET['page'] == 'edit_jadwalkelas' || $_GET['page'] == 'tambah_jadwalkelas') ? 'active' : '' ?>">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Jadwal Kelas</p>
-                </a>
-              </li>
+            
             </ul>
           </li>
           <?php endif ?>
           <?php if($role == 'Siswa') : ?>
+            <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Master
+                <i class="right fas fa-angle-left"></i> 
+              </p>
+            </a>
             <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
@@ -181,13 +186,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+            <li class="nav-item menu-open">
+            <a href="" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Transaksi
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+              <li class="nav-item">
+                <a href="index.php?page=cetak_jadwal" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
                 </a>
               </li>
             <?php endif ?>
             <?php if($role == 'Guru') : ?>
+              <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Master
+                <i class="right fas fa-angle-left"></i> 
+              </p>
+            </a>
             <li class="nav-item">
                 <a href="#" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
@@ -204,7 +226,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li class="nav-item menu-open">
               <p class="card-text">
               </p>
-                <a href="#" class="nav-link">
+              <li class="nav-item">
+            <li class="nav-item menu-open">
+            <a href="" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Transaksi
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+                <a href="index.php?page=cetak_jadwal" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Jadwal</p>
                 </a>

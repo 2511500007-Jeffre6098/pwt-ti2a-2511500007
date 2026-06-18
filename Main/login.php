@@ -96,6 +96,8 @@ if (isset($_POST['Username'])) {
 
             $_SESSION['Username'] = $Username;
             $_SESSION['Role'] = $userquery['Role'];
+            $_SESSION['Id_user'] = $userquery['Id_user'];
+
 
             if ($userquery['Role'] == 'Admin') {
 
@@ -106,7 +108,7 @@ if (isset($_POST['Username'])) {
                 $userquery['Role'] == 'Siswa'
             ) {
 
-                if ($userquery['Password'] == '12345') {
+                if ($userquery['Password'] == '1234') {
 
                     header("Location: index.php?page=ganti_password");
 
