@@ -22,23 +22,25 @@ if (isset($_POST['tambah'])) {
     $tgl_lahir = $_POST['tgl_lahir'];
     $id_kelas = $_POST['id_kelas'];
     $password = 1234;
+    $allSuccess = true;
+
     
 
     $insertSiswa = mysqli_query($conn, "INSERT INTO siswa values ('$nis','$nm_siswa','$kelamin','$hp','$tgl_lahir', '$id_kelas')");
     
-if (!$insertGuru) {
+if (!$insertSiswa) {
+        $allSuccess = false;
         echo "Gagal insert ke tabel jadwal: " . mysqli_error($conn);
         die;
     }
 
-    $allSuccess = true;
 
     $insertUsers = mysqli_query($conn, "INSERT INTO users (Username, Password, Role) values ('$nis','$password','Siswa')");
         if (!$insertUsers) {
             $allSuccess = false;
             echo "Gagal insert detail ke-{$i}: " . mysqli_error($conn);
         }
-    }
+    
     
     if ($allSuccess) {
         echo '<div class="alert alert-info-dismissable">

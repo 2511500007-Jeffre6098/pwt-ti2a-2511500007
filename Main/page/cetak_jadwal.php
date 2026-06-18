@@ -137,7 +137,7 @@
                         </table>
 
                     <?php } else if ($_SESSION['Role'] == "Guru") {                     
-                        $guru = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM guru WHERE kd_guru = '{$_SESSION['Username']}'"));
+                        $guru = mysqli_fetch_array(mysqli_query($conn, "SELECT * FROM tabel_guru WHERE kd_guru = '{$_SESSION['Username']}'"));
                         $kd_guru = $guru['kd_guru'];
                         $query = mysqli_query($conn, "SELECT DISTINCT * FROM jadwal JOIN kelas on jadwal.id_kelas = kelas.id_kelas JOIN detailjadwal on jadwal.id_jadwal = detailjadwal.id_jadwal WHERE detailjadwal.kd_guru = '$kd_guru'");
                         $result = mysqli_fetch_array($query);
@@ -146,6 +146,7 @@
                         <h5><?= "Tahun Ajaran: " . $result['thn_ajaran'] ?></h5>
                         <h5><?= "Semester: " . $result['semester'] ?></h5>
                         <br>
+                        
 
                         <table class="table table-bordered table-striped ">
                             <thead>
@@ -188,6 +189,7 @@
                         <h5><?= "Semester: " . $result['semester'] ?></h5>
                         <h5><?= "Kelas: " . $result['nm_kelas'] ?></h5>
                         <br>
+                        
 
                         <table class="table table-bordered table-striped ">
                             <thead>
@@ -218,8 +220,9 @@
                                 <?php } ?>`
                             </tbody>
                         </table>
+                                <?php } ?>`
 
-                    <?php } ?>
+                    
                         
                 </div>
 

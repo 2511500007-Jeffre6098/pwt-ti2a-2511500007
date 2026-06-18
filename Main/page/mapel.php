@@ -59,7 +59,7 @@ if (isset($_GET['action'])) {
                                     >
                                         <span class="badge badge-danger">Hapus</span> </a>  
                                     <a href="index.php?page=edit_mapel&kd=<?= $result['Kd_mapel'] ?>">
-                                        <span class="badge badge-warning">edit</span></a>                                  
+                                        <span class="badge badge-warning">Edit</span></a>                                  
                                 </td>
                             </tr>
                             </tbody>

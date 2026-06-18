@@ -38,7 +38,7 @@ if (isset($_GET['action'])) {
                     </a>
                     <br><br>
 
-                    <table class="table table-striped">
+                    <table class="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th>NO</th>
@@ -82,7 +82,7 @@ if (isset($_GET['action'])) {
                             <?php } ?>
                         </tbody>
                     </table>
-
+<br>
                     <a href="index.php?page=cetak_jadwal" class="btn btn-primary btn-sm">
                         Cetak Jadwal
                     </a>

@@ -63,11 +63,10 @@ if (isset($_GET['action'])) {
                                 <td><?= $result['hp'] ?></td>
                                 <td><?= $result['alamat'] ?></td>
                                 <td>
-                                    <a href="index.php?page=guru&action=hapus&kd=<?= $result['kd_guru'] ?>" 
-                                    <title="">
+                                    <a href="index.php?page=guru&action=hapus&kd=<?= $result['kd_guru'] ?>"> 
                                         <span class="badge badge-danger">Hapus</span> </a>  
-                                    <a href="index.php?page=edit_guru&kd=<?= $result['kd_guru'] ?>"<title="">
-                                        <span class="badge badge-warning">edit</span></a>                                  
+                                    <a href="index.php?page=edit_guru&kd=<?= $result['kd_guru'] ?>">
+                                        <span class="badge badge-warning">Edit</span></a>                                  
                                 </td>
                             </tr>
                             </tbody>
